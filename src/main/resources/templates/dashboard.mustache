@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sbrigit - Dashboard</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" rel="preload">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet" rel="preload">
+</head>
+
+<body>
+<div class="position-relative d-flex p-0" id="top">
+    <!-- Spinner Start -->
+    <div id="spinner"
+         class="show bg-light position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Sidebar Start -->
+    <aside class="sidebar pb-3">
+        <button class="d-lg-none close_btn"><img src="assets/img/icons/close_icon.svg" alt="Close" width="30" /></button>
+        <nav class="navbar text-left">
+            <a href="dashboard" class="navbar-brand my-4 pt-2 pb-4 m-auto text-center">
+                <img src="assets/img/logo.svg" alt="Sbrigit" width="144" class="img-fluid" />
+            </a>
+
+            <ul class="navbar-nav w-100">
+                <li><a href="dashboard" class="nav-link active"><i class="me-2"><img
+                        src="assets/img/icons/menu_icons/dashboard_icon.svg" width="24" alt="" /></i> Dashboard </a></li>
+                <li class="nav-item">
+                    <a href="retailers.html" class="nav-link"><i
+                            class="me-2"><img src="assets/img/icons/menu_icons/retailor_icon.svg" width="23"
+                                              alt="" /></i>
+                        News
+                    </a>
+                </li>
+                <li><a href="drivers" class="nav-link"><i class="me-2"><img
+                        src="assets/img/icons/menu_icons/driver_icon.svg" width="23" alt="" /></i>
+                    User Management</a></li>
+            </ul>
+            <div class="logout_menu"><a href="index.html" class="nav-link"><i class="me-2"><img
+                    src="assets/img/icons/menu_icons/logout_icon.svg" width="24" alt="Logout" /></i> Log Out </a>
+            </div>
+        </nav>
+
+    </aside>
+    <!-- Sidebar End -->
+
+    <!-- Content Start -->
+    <div class="content pb-3">
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand navbar-dark px-3 px-lg-4 py-3 top_header">
+
+            <a href="#" class="sidebar-toggler flex-shrink-0 me-2 d-lg-none">
+                <img src="assets/img/icons/hamburger_icon.svg" alt="" width="30" />
+            </a>
+
+            <div class="d-none d-md-block title_hd">
+                <span class="h6 mb-0 text-capitalize">Hello {{firstName}}</span>
+                <small class="d-block f-small text-mute">11:45 am 22 Dec 2022</small>
+            </div>
+
+            <div class="navbar-nav align-items-center ms-auto">
+
+                <div class="nav-item dropdown ms-4 p_pic">
+                    <a href="#" class="d-flex align-items-center dropdown-toggle text-decoration-none"
+                       data-bs-toggle="dropdown">
+                        <em class="me-2 avtar avtar-30 border-0"><img src={{imageUrl}} alt="" width="30" /></em>
+                        <span class="me-2">{{firstName}} {{lastName}} </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end border-0 m-0 w-100">
+                        <a href="#Password" class="dropdown-item">My Profile</a>
+                        <a href="index.html" class="dropdown-item">Logout</a>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Start Content -->
+        <div class="container-fluid py-2 px-3 mt-3">
+            <div class="card-panel bg-white radius-10">
+
+                <!-- <div class="row g-0">  -->
+                <div class="p-4">
+
+                    <!-- End Page Title -->
+                    <div class="row g-3 dashboard_cards justify-content-center">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3 mt-3 mt-xl-4 pt-lg-3 flex-grow-1">
+                            <div class="card border-0">
+                                <div class="card-body">
+                                    <h2 class="text-capitalize">Total Projects</h2>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <h2 class="mb-0 number-font">0</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3 mt-3 mt-xl-4 pt-lg-3 flex-grow-1">
+                            <div class="card border-0">
+                                <div class="card-body">
+                                    <h2 class="text-capitalize">Total News</h2>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <h2 class="mb-0 number-font">0</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="row g-3 dashboard_cards justify-content-center">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3 mt-3 mt-xl-4 pt-lg-3 flex-grow-1">
+                            <div class="card border-0">
+                                <div class="card-body">
+                                    <h2 class="text-capitalize">Total Revenue</h2>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <h2 class="mb-0 number-font">0</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xl-3 mt-3 mt-xl-4 pt-lg-3 flex-grow-1">
+                            <div class="card border-0">
+                                <div class="card-body"> <!--fs-14-->
+                                    <h2 class="text-capitalize">Total Orders</h2>
+                                    <div class="d-flex justify-content-between align-items-center mt-3">
+                                        <h2 class="mb-0 number-font">0</h2>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- </div> -->
+
+
+            </div>
+        </div>
+
+    </div>
+    <!-- End Content  -->
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

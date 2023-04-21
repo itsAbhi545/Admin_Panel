@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sbrigit - Login</title>
+    <meta content="" name="author">
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+<!--  Start Login Page -->
+<div class="overflow-hidden front_form">
+    <div class="row g-0">
+        <div class="d-none d-md-flex col-md-6 login_bg">
+            <div class="front_logo">
+                <img src="assets/img/logo.svg" alt="Sbrigit" width="249"/>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex flex-column align-items-start justify-content-center px-3 px-md-5 min-vh-100">
+                <div class="ls_form">
+                    <div class="d-md-none front_logo">
+                        <img src="assets/img/logo.svg" alt="Sbrigit" width="249"/>
+                    </div><!--action="dashboard.html"-->
+                    <form method="POST" action="/login" class="w-100">
+                        <div class="title_group text-left mb-4 pb-3">
+                            <h1 class="h1 mb-3">Login</h1>
+                            <p>Welcome back! Please enter your details.</p>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="position-relative">
+                                <input type="text" class="form-control" placeholder="Enter Username" required />
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <div class="position-relative">
+                                <input type="password" class="form-control" placeholder="Password" required id="pwd" />
+                                <button type="button" class="show_hide_pwd" onclick="show()"><img src="assets/img/icons/hide_password.svg" id="EYE" width="16" /></button>
+                            </div>
+                        </div>
+
+                        <div class="mb-4 text-end">
+                            <a href="forgot-password.html">Forgot Password?</a>
+                        </div>
+
+                        <div class="pt-3">
+                            <button class="py-md-3 w-100 btn btn-lg btn-primary" type="submit">
+                                Login
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--  End Login Page -->
+
+<!-- Script -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+        function show() {
+            var a = document.getElementById("pwd");
+            var b = document.getElementById("EYE");
+            if (a.type == "password") {
+                a.type = "text";
+                b.src = "assets/img/icons/show_password.svg";
+            } else {
+                a.type = "password";
+                b.src = "assets/img/icons/hide_password.svg";
+            }
+        }
+         $("form").submit(async (event)=>{
+            event.preventDefault();
+            console.log("😎😎😎");
+            console.log($("input:text").val() + ":" + $("input:password").val());
+            let data = await fetch("/login", {
+				 method: "POST",
+				 // Adding body or contents to send
+				 body: JSON.stringify({
+					 email: $("input:text").val(),
+                     password: $("input:password").val()
+				 }),
+				 // Adding headers to the request
+				 headers: {
+					 "Content-type": "application/json; charset=UTF-8"
+				 }
+ 			})
+            data = await data.json();
+            if(data.code==401){
+                alert("Enter Valid Credentials!!");
+                return;
+            }
+            console.log(data);
+<!--            const d = new Date();-->
+<!--            d.setTime(d.getTime() + (1*24*60*60*1000));-->
+<!--            let expires = "expires="+ d.toUTCString();-->
+<!--            document.cookie = "uid" + "=" + data + ";" + expires + ";path=/";-->
+            window.location.replace(`dashboard`);
+        })
+
+    </script>
+
+</body>
+
+</html>

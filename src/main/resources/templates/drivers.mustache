@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Sbrigit - Drivers</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="manifest" href="assets/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet" rel="preload">
+
+    <!-- Template Stylesheet -->
+    <link href="assets/css/style.css" rel="stylesheet" rel="preload">
+    <style>
+        .status:hover{
+            cursor:pointer;
+        }
+    </style>
+</head>
+
+<body>
+<div class="position-relative d-flex p-0" id="top">
+    <!-- Spinner Start -->
+    <div id="spinner"
+         class="show bg-light position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only"></span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Sidebar Start -->
+    <aside class="sidebar pb-3">
+        <button class="d-lg-none close_btn"><img src="assets/img/icons/close_icon.svg" alt="Close"
+                                                 width="30" /></button>
+        <nav class="navbar text-left">
+            <a href="dashboard" class="navbar-brand my-4 pt-2 pb-4 m-auto text-center">
+                <img src="assets/img/logo.svg" alt="Sbrigit" width="144" class="img-fluid" />
+            </a>
+
+            <ul class="navbar-nav w-100">
+                <li><a href="dashboard" class="nav-link"><i class="me-2"><img
+                        src="assets/img/icons/menu_icons/dashboard_icon.svg" width="24" alt="" /></i>
+                    Dashboard </a></li>
+                <li class="nav-item">
+                    <a href="retailers.html" class="nav-link"><i class="me-2"><img
+                            src="assets/img/icons/menu_icons/retailor_icon.svg" width="23" alt="" /></i>
+                        News
+                    </a>
+                </li>
+                <li><a href="drivers" class="nav-link active"><i class="me-2"><img
+                        src="assets/img/icons/menu_icons/driver_icon.svg" width="23" alt="" /></i>
+                    User Management</a></li>
+            </ul>
+            <div class="logout_menu"><a href="index.html" class="nav-link"><i class="me-2"><img
+                    src="assets/img/icons/menu_icons/logout_icon.svg" width="24" alt="Logout" /></i> Log Out
+            </a>
+            </div>
+        </nav>
+
+    </aside>
+    <!-- Sidebar End -->
+
+    <!-- Content Start -->
+    <div class="content pb-3">
+        <!-- Navbar Start -->
+        <nav class="navbar navbar-expand navbar-dark px-3 px-lg-4 py-3 top_header">
+
+            <a href="#" class="sidebar-toggler flex-shrink-0 me-2 d-lg-none">
+                <img src="assets/img/icons/hamburger_icon.svg" alt="" width="30" />
+            </a>
+
+            <div class="d-none d-md-block title_hd">
+                <h3 class="h6 mb-0 text-capitalize">Hello {{firstName}}</h3>
+            </div>
+
+            <div class="navbar-nav align-items-center ms-auto">
+
+                <div class="nav-item dropdown ms-4 p_pic">
+                    <a href="#" class="d-flex align-items-center dropdown-toggle text-decoration-none"
+                       data-bs-toggle="dropdown">
+                        <em class="me-2 avtar avtar-30 border-0"><img src={{imageUrl}} alt=""
+                                                                      width="30" /></em>
+                        <span class="me-2">{{firstName}} {{lastName}} </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end border-0 m-0 w-100">
+                        <a href="#Password" class="dropdown-item">My Profile</a>
+                        <a href="index.html" class="dropdown-item">Logout</a>
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+        <!-- Navbar End -->
+
+        <!-- Start Content -->
+        <div class="container-fluid py-2 px-3 mt-3">
+            <div class="card-panel bg-white p-4 radius-10">
+
+                <div class="d-flex flex-wrap justify-content-between align-items-center page-header">
+                    <h1 class="h2 mb-2">User Management</h1>
+                    <!-- <div class="mb-2 text-right">
+                        <a href="#" class="btn btn-md btn-primary text-capitalize">Add Driver</a>
+                    </div> -->
+                </div>
+
+                <div class="mb-4">
+                    <form rel="">
+                        <div class="search_form">
+                            <input id="myInput" type="search" placeholder="Search any retailer..." class="form-control" />
+                        </div>
+                    </form>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">FirstName<span class="sort_icon" id="firstName"><img
+                                    src="assets/img/icons/sort_icon.svg" alt="" width="8" /></span></th>
+                            <th scope="col">LastName<span class="sort_icon" id="lastName"><img
+                                    src="assets/img/icons/sort_icon.svg" alt="" width="8" /></span></th>
+                            <th scope="col">Email<span class="sort_icon" id="email"><img
+                                    src="assets/img/icons/sort_icon.svg" alt="" width="8" /></span></th>
+                            <th scope="col">Status <span class="sort_icon" id="Status"><img
+                                    src="assets/img/icons/sort_icon.svg" alt="" width="8" /></span></th>
+                            <th scope="col" width="80">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {{#driverList}}
+                        <tr>
+                            <td data-label="Account">
+                                <div class="d-flex user_pic">
+                                    <div class="user_info"><span class="text-capitalize">{{firstName}}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td data-label="Email">{{lastName}}</td>
+                            <td data-label="Phone">{{email}}</td>
+                            <td data-label="Status">
+                                <span class="status rounded-pill badge badge" data-target={{id}}>{{status}}</span>
+                            </td>
+                            <td data-label="Action">
+                                <div class="d-flex actions">
+                                    <a href="#" class="btn btn-transparent"><img
+                                            src="assets/img/icons/view_icon.svg" width=""
+                                            height="10" /></a>
+                                    <a href="/driverUpdate?uid={{id}}" class="btn btn-transparent"><img
+                                            src="assets/img/icons/edit_icon.svg"   width=""
+                                            height="10" /></a>
+                                    <a href="#" id={{id}} class="btn btn-transparent deleteDriver"><img
+                                            src="assets/img/icons/trash_icon.svg" width=""
+                                            height="10" /></a>
+                                </div>
+                            </td>
+                        </tr>
+                        {{/driverList}}
+                        </tbody>
+                    </table>
+
+                    <nav aria-label="Page navigation" class="mt-4 w-100 text-center">
+                        <ul class="pagination justify-content-center mb-0">
+                            <li class="page-item"><a class="page-link arrows pre_arrow" href="#" disabled><img src="assets/img/icons/pre_arrow.svg" alt="Previous" width="6px">Previous</a></li>
+<!--                            <li class="page-item active"><a class="page-link" href="#">1</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">2</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">3</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">...</a></li>-->
+<!--                            <li class="page-item"><a class="page-link" href="#">150</a></li>-->
+                            <li class="page-item"><a class="page-link next_arrow" href="#">Next <img src="assets/img/icons/next_arrow.svg" alt="Next" width="6px"> </a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- End Content  -->
+</div>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="assets/js/main.js"></script>
+<script>
+<!--        $('#selectAll').click(function (e) {-->
+<!--            $(this).closest('table').find('td input:checkbox').prop('checked', this.checked);-->
+<!--        });-->
+<!--      $(document).on('click', 'a', async function () {-->
+<!--              -->
+<!--             let data = await fetch("/driverUpdate", {-->
+<!--				 method: "GET",-->
+<!--				 // Adding headers to the request-->
+<!--				 headers: {-->
+<!--                     "uid":this.id-->
+<!--				 }-->
+<!-- 			})-->
+<!-- 			data = await data.text();-->
+<!-- 			console.log(data);-->
+<!--&lt;!&ndash; 			window.location.href = data;&ndash;&gt;-->
+<!--               document.body.innerHTML = data;-->
+<!--        });-->
+
+        let length;
+        (async()=>{
+            console.log("function called");
+            length = await fetch('driver/count');
+            length = await length.text();
+        })()
+        $(document).on('click','.sort_icon',async function(){
+<!--           const data =  await fetch(`/suspend/driver?uid=${this.id}`, { method: 'PATCH' })-->
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set('sortBy', this.id);
+             window.location.search = urlParams;
+<!--            console.log(this.id);-->
+<!--            window.location.replace(`drivers?sortBy=${this.id}`);-->
+        })
+        $(document).on('click','.deleteDriver',async function(){
+           const data =  await fetch(`/suspend/driver?uid=${this.id}`, { method: 'PATCH' })
+            window.location.replace('drivers');
+        })
+        document.querySelector("#myInput").addEventListener("keypress", function(event) {
+         if (event.key === "Enter") {
+        event.preventDefault();
+            const urlParams = new URLSearchParams(window.location.search);
+            urlParams.set('email', this.value);
+<!--            window.location.assign(`drivers?email=${this.value}`);-->
+             window.location.search = urlParams;
+             }
+        });
+        const status_name = ["Active","Inactive","Pending"];
+        const class_name = ["bg-success","bg-warning","bg-progress"];
+         $('.status').each(function(i, obj) {
+           const index = status_name.indexOf($(this).text());
+           $(this).text(status_name[index]);
+           $(this).addClass(class_name[index]);
+        });
+        $(document).on('click','.status',async function(){
+            const index = status_name.indexOf($(this).text());
+            const uid = this.getAttribute("data-target");
+            const data =  await fetch(`/update/status?uid=${uid}&status=${status_name[(index+1)%3]}`, { method: 'PATCH' })
+           $(this).text(status_name[(index+1)%3]);
+           $(this).removeClass(class_name[index]);
+           $(this).addClass(class_name[(index+1)%3]);
+        })
+        $('.pre_arrow').click(function(event){
+        event.preventDefault();
+        const urlParams = new URLSearchParams(window.location.search);
+        const uidParam = urlParams.get('skip');
+        if(uidParam==null||uidParam==0){
+            alert("No more Drivers exist Before!!!");
+            this.style.display = 'none';
+            return;
+        }
+        else{
+<!--            const urlParams = new URLSearchParams(window.location.search);-->
+            urlParams.set('skip', uidParam-1);
+             window.location.search = urlParams;
+<!--            window.location.assign(`drivers?skip=${uidParam-1}`);-->
+        }
+    })
+    $('.next_arrow').click(function(event){
+        event.preventDefault();
+        const urlParams = new URLSearchParams(window.location.search);
+        const uidParam = parseInt((urlParams.get('skip')==null)?0:urlParams.get('skip')) + 1;
+        const uidLimit = (urlParams.get('limit')==null)?5:urlParams.get('limit');
+        if(uidParam*uidLimit>length){
+            alert("No more Drivers Exist!!!");
+            this.style.display = 'none';
+            return;
+        }
+        else{
+            window.location.assign(`drivers?skip=${uidParam}`);
+        }
+    })
+    </script>
+</body>
+
+</html>
